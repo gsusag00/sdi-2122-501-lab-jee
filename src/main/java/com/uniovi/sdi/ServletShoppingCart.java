@@ -10,6 +10,7 @@ import java.util.Map;
 
 @WebServlet(name = "ServletShoppingCart", value = "/AddToShoppingCart")
 public class ServletShoppingCart extends HttpServlet {
+    //Fallo el commit, comment para poder hacerlo otra vez
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
