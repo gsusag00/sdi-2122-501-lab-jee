@@ -27,6 +27,7 @@ public class ServletShoppingCart extends HttpServlet {
         }
         request.setAttribute("selectedItems", cart);
         getServletContext().getRequestDispatcher("/cart.jsp").forward(request, response);
+        //Por que se me olvido cambiar el numero
 //        response.setCharacterEncoding("UTF-8");
 //        response.setContentType("text/html");
 //        PrintWriter out = response.getWriter();
