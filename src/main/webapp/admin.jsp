@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" import="com.uniovi.sdi.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -18,6 +19,17 @@
     if (user == null || user.equals("admin") == false) {
 // No hay usuario o no es admin
         response.sendRedirect("login.jsp");
+    }
+%>
+<%
+    if (request.getParameter("name") != null && request.getParameter("image") != null &&
+            request.getParameter("price") != null) {
+        String name = request.getParameter("name");
+        String image = request.getParameter("image");
+        float price = Float.parseFloat(request.getParameter("price"));
+        Product product = new Product(name, image, price);
+        new ProductsService().setNewProduct(product);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 %>
 <!-- Contenido -->
