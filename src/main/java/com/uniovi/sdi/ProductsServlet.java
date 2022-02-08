@@ -19,11 +19,13 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        List<Product> products = new LinkedList<>(new ProductsService().getProducts());
+        List<Product> storeProducts = new LinkedList<>(new ProductsService().getProducts());
+        /*
         List<String> storeProducts = new LinkedList<>();
         for (Product product : products) {
             storeProducts.add(product.getName());
         }
+        */
         request.setAttribute("storeProducts",storeProducts);
         //No hay productos asi que lo cogemos de la base de datos.
         getServletContext().getRequestDispatcher("/products-view.jsp").forward(request, response);

@@ -39,9 +39,16 @@
     <h2>Productos</h2>
     <ul>
         <c:forEach var="item" items="${storeProducts}">
-        <tr>
-            <li>${item}</li>
-        </tr>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div>
+                <img src="<c:out value="${item.image}"/>"/>
+                <div><c:out value="${item.name}"/>
+                </div>
+                <a href="AddToShoppingCart?product=<c:out value="${item.name}"/>" class="btn btn-default">
+                    <c:out value="${item.price}"/> €
+                </a>
+            </div>
+        </div>
         </c:forEach>
     </ul>
 </div>
